@@ -6,13 +6,13 @@ using UnityEngine;
 public static class CameraSetup
 {
    /// <summary>
-   /// Adjust the camera so that it is always in the same position, regardless of the shape of the board.
+   /// Extension method to adjust the camera so that it is always in the same position, regardless of the shape of the board.
    /// </summary>
    /// <param name="cam">Main Camera</param>
    /// <param name="numberOfRows">Number of rows of the board</param>
    /// <param name="numberOfColumns">Number of columns of the board</param>
    /// <param name="tileOffset">Const value that all tiles positions are multiplied by</param>
-   public static void Setup(Camera cam, int numberOfRows, int numberOfColumns, float tileOffset)
+   public static void Setup(this Camera cam, int numberOfRows, int numberOfColumns, float tileOffset)
    {
       var evenRowNumberCoefficient = numberOfRows % 2 == 0 ? 0 : 1;
       // Second numberOfRows / 2  moves the camera closer to the bottom of the board
