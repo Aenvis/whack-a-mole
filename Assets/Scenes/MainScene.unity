@@ -437,7 +437,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1262050530}
   - component: {fileID: 1262050532}
-  - component: {fileID: 1262050531}
   m_Layer: 0
   m_Name: BoardGenerator
   m_TagString: Untagged
@@ -453,25 +452,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1262050529}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1262050531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1262050529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a27f7d6426a59bd4abc63c7c3540e932, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1262050532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,6 +471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 466a5c68da52f054e899ccdce918ad81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameCamera: {fileID: 330585545}
   boardTile: {fileID: 7255327796453507250, guid: 949ab52f0eb61fd4d8ea0053c830f55f,
     type: 3}
   boardData: {fileID: 11400000, guid: b0c2b6ae71e41e94d8e19bfa8f002a27, type: 2}

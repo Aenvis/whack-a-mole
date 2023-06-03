@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d313059be6fb4d0c93d6dbf16d76b87d, type: 3}
   m_Name: BoardData
   m_EditorClassIdentifier: 
-  <NumberOfTileRows>k__BackingField: 5
-  <NumberOfTileColumns>k__BackingField: 3
+  <NumberOfTileRows>k__BackingField: 6
+  <NumberOfTileColumns>k__BackingField: 5

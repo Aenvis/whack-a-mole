@@ -1,28 +1,36 @@
-using JetBrains.Annotations;
 using UnityEngine;
 
 public class BoardGenerator : MonoBehaviour
 {
+    [SerializeField] private Camera gameCamera;
     [SerializeField] private GameObject boardTile;
     [SerializeField] private BoardData boardData;
 
-    private readonly int[,] _board;
+    private Tile[,] _board;
     private const float RowOffset = 1.02f;
     private const float ColumnOffset = 1.02f;
 
     private void Start()
     {
         boardData.Init();
+        _board = new Tile[boardData.NumberOfTileRows, boardData.NumberOfTileColumns];
+        
         InstantiateBoard();
+        CameraSetup.Setup(gameCamera, boardData.NumberOfTileRows, boardData.NumberOfTileColumns, RowOffset);
     }
 
     private void InstantiateBoard()
     {
-        for (var y = 0; y < boardData.NumberOfTileRows; y++)
+        for (var x = 0; x < boardData.NumberOfTileRows; x++)
         {
-            for (var x = 0; x < boardData.NumberOfTileColumns; x++)
+            for (var y = 0; y < boardData.NumberOfTileColumns; y++)
             {
-                Instantiate(boardTile, new Vector3(x * RowOffset, 0f, y * ColumnOffset), Quaternion.identity, this.transform);
+                var tile = Instantiate(boardTile, new Vector3(x * RowOffset, 0f, y * ColumnOffset), Quaternion.identity, this.transform)
+                          .AddComponent<Tile>();
+                tile.X = x;
+                tile.Y = y;
+                
+                _board[x, y] = tile;
             }
         }
     }
