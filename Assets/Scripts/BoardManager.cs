@@ -1,20 +1,20 @@
 using UnityEngine;
 
-public class BoardGenerator : MonoBehaviour
+public class BoardManager : MonoBehaviour
 {
+    private const float RowOffset = 1.02f;
+    private const float ColumnOffset = 1.02f;
     [SerializeField] private Camera gameCamera;
     [SerializeField] private GameObject boardTile;
     [SerializeField] private BoardData boardData;
 
     private Tile[,] _board;
-    private const float RowOffset = 1.02f;
-    private const float ColumnOffset = 1.02f;
 
     private void Start()
     {
         boardData.Init();
         _board = new Tile[boardData.NumberOfTileRows, boardData.NumberOfTileColumns];
-        
+
         InstantiateBoard();
         gameCamera.Setup(boardData.NumberOfTileRows, boardData.NumberOfTileColumns, RowOffset);
     }
@@ -25,11 +25,12 @@ public class BoardGenerator : MonoBehaviour
         {
             for (var y = 0; y < boardData.NumberOfTileColumns; y++)
             {
-                var tile = Instantiate(boardTile, new Vector3(x * RowOffset, 0f, y * ColumnOffset), Quaternion.identity, this.transform)
-                          .AddComponent<Tile>();
+                var tile = Instantiate(boardTile, new Vector3(x * RowOffset, 0f, y * ColumnOffset), Quaternion.identity,
+                        transform)
+                    .AddComponent<Tile>();
                 tile.X = x;
                 tile.Y = y;
-                
+
                 _board[x, y] = tile;
             }
         }

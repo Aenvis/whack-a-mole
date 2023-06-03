@@ -1,5 +1,4 @@
-﻿using Unity.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewBoardData", menuName = "Board/BoardData", order = 0)]
 public class BoardData : ScriptableObject
@@ -9,6 +8,5 @@ public class BoardData : ScriptableObject
 
     public void Init()
     {
-        
     }
 }
