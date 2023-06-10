@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 1262050530}
   - component: {fileID: 1262050532}
   m_Layer: 0
-  m_Name: BoardManager
+  m_Name: ProceduralBoardManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

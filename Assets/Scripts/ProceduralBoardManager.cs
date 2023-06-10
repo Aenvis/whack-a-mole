@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BoardManager : MonoBehaviour
+public class ProceduralBoardManager : MonoBehaviour
 {
     private const float RowOffset = 1.02f;
     private const float ColumnOffset = 1.02f;
