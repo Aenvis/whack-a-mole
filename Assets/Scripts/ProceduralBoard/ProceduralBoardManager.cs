@@ -16,7 +16,7 @@ public class ProceduralBoardManager : MonoBehaviour
         _board = new Tile[boardData.NumberOfTileRows, boardData.NumberOfTileColumns];
 
         InstantiateBoard();
-        gameCamera.Setup(boardData.NumberOfTileRows, boardData.NumberOfTileColumns, RowOffset);
+        gameCamera.ProceduralBoardSetup(boardData.NumberOfTileRows, boardData.NumberOfTileColumns, RowOffset);
     }
 
     private void InstantiateBoard()

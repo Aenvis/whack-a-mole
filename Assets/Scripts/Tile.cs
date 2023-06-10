@@ -1,7 +1,15 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    public int X { get; set; }
-    public int Y { get; set; }
+    public int X;
+    public int Y;
+
+    public bool IsTaken { get; private set; }
+
+    private void OnMouseEnter()
+    {
+        GameManager.Instance.SetTileUnderMouse(X, Y);
+    }
 }

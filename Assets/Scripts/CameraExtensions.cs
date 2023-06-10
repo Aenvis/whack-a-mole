@@ -10,7 +10,7 @@ public static class CameraSetup
    /// <param name="numberOfRows">Number of rows of the board</param>
    /// <param name="numberOfColumns">Number of columns of the board</param>
    /// <param name="tileOffset">Const value that all tiles positions are multiplied by</param>
-   public static void Setup(this Camera cam, int numberOfRows, int numberOfColumns, float tileOffset)
+   public static void ProceduralBoardSetup(this Camera cam, int numberOfRows, int numberOfColumns, float tileOffset)
     {
         var evenColumnNumberCoefficient = numberOfRows % 2 == 0 ? (-0.5f * tileOffset) : 0;
         var x = numberOfRows;
