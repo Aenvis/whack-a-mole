@@ -1,12 +1,11 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
     public int X;
     public int Y;
 
-    public bool IsTaken { get; private set; }
+    public bool IsTaken { get; set; }
 
     private void OnMouseEnter()
     {

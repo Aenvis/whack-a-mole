@@ -22,17 +22,15 @@ public class ProceduralBoardManager : MonoBehaviour
     private void InstantiateBoard()
     {
         for (var x = 0; x < boardData.NumberOfTileRows; x++)
+        for (var y = 0; y < boardData.NumberOfTileColumns; y++)
         {
-            for (var y = 0; y < boardData.NumberOfTileColumns; y++)
-            {
-                var tile = Instantiate(boardTile, new Vector3(x * RowOffset, 0f, y * ColumnOffset), Quaternion.identity,
-                        transform)
-                    .AddComponent<Tile>();
-                tile.X = x;
-                tile.Y = y;
+            var tile = Instantiate(boardTile, new Vector3(x * RowOffset, 0f, y * ColumnOffset), Quaternion.identity,
+                    transform)
+                .AddComponent<Tile>();
+            tile.X = x;
+            tile.Y = y;
 
-                _board[x, y] = tile;
-            }
+            _board[x, y] = tile;
         }
     }
 }
