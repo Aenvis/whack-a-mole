@@ -15,6 +15,7 @@ namespace DefaultNamespace
             GameManager.Instance.OnNewTilesDraw += OnTilesDraw; 
         }
         
+        //TODO: move that to some service class to draw and set tiles synchronously, atm there is a bug where moles completely skip this method on draw - not intended
         private void OnTilesDraw()
         {
             if (isStunned) return;
