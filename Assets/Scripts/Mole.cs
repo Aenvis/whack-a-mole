@@ -1,4 +1,5 @@
-﻿using Unity.VisualScripting;
+﻿using JetBrains.Annotations;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -10,28 +11,18 @@ namespace DefaultNamespace
 
         private void Start()
         {
-            GameManager.Instance.OnNewTilesDraw += Function; 
+            currentTile = GameManager.Instance.DrawTile();
+            GameManager.Instance.OnNewTilesDraw += OnTilesDraw; 
         }
-
-        // TODO: change function name according to its functionality, now its a placeholder name
-        private void Function()
+        
+        private void OnTilesDraw()
         {
             if (isStunned) return;
-
-            // Hide under the board and draw new tile
-            this.currentTile.IsTaken = false;
-
-            var currentTile = DrawTile();
-
-            while (currentTile.IsTaken)
-            {
-                // draw until its free
-            }
-        }
-
-        private Tile DrawTile()
-        {
-            return null;
+            
+            currentTile.IsTaken = false;
+            currentTile = GameManager.Instance.DrawTile();
+            currentTile.IsTaken = true;
+            Debug.Log($"{gameObject.name} tile: {currentTile?.gameObject.name}");
         }
     }
 }

@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using DefaultNamespace;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public struct CursorData
 {
@@ -11,11 +13,14 @@ public struct CursorData
 
 public class GameManager : MonoBehaviour
 {
-    private const float TimeBetweenDraws = 2f;
     public static GameManager Instance;
-
+    
     [SerializeField] private List<Tile> board;
-
+    [SerializeField] private List<Mole> moles;
+    
+    private const float TimeBetweenDraws = 2f;
+    public event Action OnNewTilesDraw;
+    
     private CursorData _tileUnderCursor;
     private float _time;
 
@@ -26,11 +31,7 @@ public class GameManager : MonoBehaviour
         else
             Instance = this;
     }
-
-    private void Start()
-    {
-    }
-
+    
     private void Update()
     {
         _time += Time.deltaTime;
@@ -38,31 +39,16 @@ public class GameManager : MonoBehaviour
         if (_time >= TimeBetweenDraws)
         {
             Debug.Log($"draw at: {_time}");
+            OnNewTilesDraw?.Invoke();
             _time -= TimeBetweenDraws;
         }
-
-        if (Input.GetMouseButtonDown(0)) OnMouseButtonDown();
     }
 
-    public event Action OnNewTilesDraw;
-
-    private void OnMouseButtonDown()
+    public Tile DrawTile()
     {
-        var currentTile = GetTile(_tileUnderCursor.X, _tileUnderCursor.Y);
-        if (currentTile.IsTaken) Debug.Log("Taken");
-        else Debug.Log("Not Taken");
-    }
-
-    private void DrawTiles()
-    {
-        OnNewTilesDraw?.Invoke();
-    }
-
-    public Tile GetTile(int x, int y)
-    {
-        var tile = board.Single(tile => tile.X == x && tile.Y == y);
-
-        return tile;
+        var freeTiles = board.Where(tile => tile.IsTaken == false).ToList();
+        var random = Random.Range(0, freeTiles.Count);
+        return freeTiles[random];
     }
 
     public void SetTileUnderMouse(int x, int y)
