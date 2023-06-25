@@ -66,7 +66,7 @@ Material:
     - _Shadign_Multiplayer: 2
     - _Smoothess: 1.32
     m_Colors:
-    - _Color: {r: 0.6313726, g: 0.6313726, b: 0.6313726, a: 0}
+    - _Color: {r: 0.40557137, g: 0.45910513, b: 0.5849056, a: 0}
     - _Patern_Densinity: {r: 45, g: 4, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4662398033338391859
