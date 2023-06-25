@@ -108,11 +108,11 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _Fallof_Teshold: -1
+    - _Fallof_Teshold: -0.98
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Lit_Treshhold: 1.61
+    - _Lit_Treshhold: 2.4
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -121,7 +121,7 @@ Material:
     - _ReceiveShadows: 1
     - _Rotate: 0
     - _Shadign_Multiplayer: 2
-    - _Smoothess: 1.82
+    - _Smoothess: 0.68
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
