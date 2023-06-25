@@ -58,15 +58,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Fallof_Teshold: 0.4
-    - _Lit_Treshhold: 0.2
+    - _Fallof_Teshold: -0.7
+    - _Lit_Treshhold: 0.52
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Rotate: 0
     - _Shadign_Multiplayer: 2
-    - _Smoothess: 0.2
+    - _Smoothess: 1.32
     m_Colors:
-    - _Patern_Densinity: {r: 5, g: 5, b: 0, a: 0}
+    - _Color: {r: 0.6313726, g: 0.6313726, b: 0.6313726, a: 0}
+    - _Patern_Densinity: {r: 45, g: 4, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4662398033338391859
 MonoBehaviour:

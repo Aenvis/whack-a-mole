@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18365863, g: 0.22795898, b: 0.29833356, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -347,14 +347,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: -0.17270781, y: 0.45696062, z: -0.14070188, w: -0.8611399}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 25.217, y: -414.706, z: 5.358}
 --- !u!114 &410087042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,17 +443,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: fb63b7b1cf4e9fc4fa1a2d3c3b825e97,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.3808172
+      value: 3.66
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fb63b7b1cf4e9fc4fa1a2d3c3b825e97,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fb63b7b1cf4e9fc4fa1a2d3c3b825e97,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.9973216
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fb63b7b1cf4e9fc4fa1a2d3c3b825e97,
         type: 3}
@@ -499,7 +499,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1ed83f2b170c3f7488e5492e1aa464f0, type: 2}
+      objectReference: {fileID: 2100000, guid: 39b92bb8a56e44840a69a08a9ff527dc, type: 2}
     - target: {fileID: 7568870164060683639, guid: fb63b7b1cf4e9fc4fa1a2d3c3b825e97,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
