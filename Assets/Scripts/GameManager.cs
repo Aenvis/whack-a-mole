@@ -26,8 +26,18 @@ public class GameManager : MonoBehaviour
             uiManager.scoreText.text = $"Score: {_score.ToString()}";
     }
     }
-    
+
     private float _time;
+    public float CurrentTime
+    {
+        get => _time;
+        set
+        {
+            _time = value;
+            uiManager.timerText.text = $"time left: {(int)_time}";
+        }
+    }
+    
     private const float StartTime = 30f;
 
     private void Awake()
@@ -48,7 +58,7 @@ public class GameManager : MonoBehaviour
     {
         if(!GameRunning) return;
 
-        if (_time > 0) _time -= Time.deltaTime; 
+        if (CurrentTime > 0) CurrentTime -= Time.deltaTime; 
         else StopGame();
         
         if (MolesWhacked <= 0) MolesWhacked = 0;
@@ -77,7 +87,7 @@ public class GameManager : MonoBehaviour
     {
         OnGameStart?.Invoke();
         GameRunning = true;
-        _time = StartTime;
+        CurrentTime = StartTime + 1f;
     }
 
     public void StopGame()
