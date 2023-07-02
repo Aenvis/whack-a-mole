@@ -1,24 +1,18 @@
 using System.Collections.Generic;
 using DefaultNamespace;
-using Unity.Mathematics;
+using JetBrains.Annotations;
 using UnityEngine;
-
-public struct CursorData
-{
-    public int X;
-    public int Y;
-}
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
-    [SerializeField] private List<Transform> holesPositions;
+    
     [SerializeField] private List<Mole> moles;
 
-    private List<Hole> _holes;
-    private CursorData _tileUnderCursor;
+    [CanBeNull] Mole SelectedMole { get; set; }
+    
     private float _time;
+    private const float StartTime = 30f;
 
     private void Awake()
     {
@@ -28,17 +22,6 @@ public class GameManager : MonoBehaviour
             Instance = this;
     }
 
-    private void Start()
-    {
-        _holes = new List<Hole>();
-
-        foreach (var holePos in holesPositions)
-        {
-            var hole = new Hole(holePos.position);
-            _holes.Add(hole);
-        }
-    }
-
     private void Update()
     {
         ReadInput();
@@ -46,11 +29,12 @@ public class GameManager : MonoBehaviour
 
     private void ReadInput()
     {
+        if (SelectedMole is null) return;
+        if (SelectedMole.IsStunned) return; 
+        
         if (Input.GetMouseButtonDown(0))
         {
-            var random = new System.Random();
-            var id = random.Next(moles.Count-1);
-            StartCoroutine(moles[id].Stun());
+            StartCoroutine(SelectedMole.Stun());
         }
     }
 }
