@@ -13,13 +13,13 @@ namespace DefaultNamespace
 
         [CanBeNull] private Animator _animator;
         private Transform _transform;
-        private const float yPositionUp = 0.14f;
-        private float yPositionDown = -1.2f;
+        private const float YPositionUp = 0.14f;
+        private const float YPositionDown = -1.2f;
+        private const float TransitionDuration = 1f;
         private const float MinShowUpTime = 1f;
         private const float MaxShowUpTime = 3f;
         private const float MinHiddenTime = 1f;
         private const float MaxHiddenTime = 5f;
-        private const float TransitionDuration = 2f;
 
         private float _currentShowOrHideTime;
 
@@ -29,7 +29,7 @@ namespace DefaultNamespace
             _transform = GetComponent<Transform>();
             _currentShowOrHideTime = Random.Range(MinHiddenTime, MaxHiddenTime);
             var position = transform.position;
-            _transform.position = new Vector3(position.x, yPositionDown, position.z);
+            _transform.position = new Vector3(position.x, YPositionDown, position.z);
         }
 
         private void FixedUpdate()
@@ -44,12 +44,12 @@ namespace DefaultNamespace
             
             if (IsHidden)
             {
-                StartCoroutine(ShowHideTransition(transform.position, yPositionUp));
+                StartCoroutine(ShowHideTransition(transform.position, YPositionUp));
                 _currentShowOrHideTime = Random.Range(MinShowUpTime, MaxShowUpTime);
             }
             else
             {
-                StartCoroutine(ShowHideTransition(transform.position, yPositionDown));
+                StartCoroutine(ShowHideTransition(transform.position, YPositionDown));
                 _currentShowOrHideTime = Random.Range(MinHiddenTime, MaxHiddenTime);
             }
         }
@@ -72,10 +72,9 @@ namespace DefaultNamespace
         {
             // TODO: play stun animation
             var position = transform.position;
-            _transform.position = new Vector3(position.x, yPositionUp, position.z);
+            _transform.position = new Vector3(position.x, YPositionUp, position.z);
             yield return new WaitForSeconds(1f);
-            Debug.Log("STUN");
-            yield return StartCoroutine(ShowHideTransition(transform.position, yPositionDown));
+            yield return StartCoroutine(ShowHideTransition(position, YPositionDown));
         }
     }
 }
