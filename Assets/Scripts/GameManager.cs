@@ -1,9 +1,7 @@
-using System;
 using System.Collections.Generic;
 using DefaultNamespace;
-using UnityEditor.Timeline.Actions;
+using Unity.Mathematics;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public struct CursorData
 {
@@ -16,7 +14,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [SerializeField] private List<Transform> holesPositions;
-    [SerializeField] private List<Mole> molesObj;
+    [SerializeField] private List<Mole> moles;
 
     private List<Hole> _holes;
     private CursorData _tileUnderCursor;
@@ -41,14 +39,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public Vector3 GetRandomHolePosition()
+    private void Update()
     {
-        int id;
-        do
-        {
-            id = Random.Range(0, _holes.Capacity);
-        } while (_holes[id].IsTaken);
+        ReadInput();
+    }
 
-        return _holes[id].Position;
+    private void ReadInput()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            var random = new System.Random();
+            var id = random.Next(moles.Count-1);
+            StartCoroutine(moles[id].Stun());
+        }
     }
 }

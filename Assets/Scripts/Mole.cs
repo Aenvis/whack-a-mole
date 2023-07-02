@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using JetBrains.Annotations;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -12,12 +13,13 @@ namespace DefaultNamespace
 
         [CanBeNull] private Animator _animator;
         private Transform _transform;
-        private const float yPositionUp = 0.139f;
-        private float yPositionDown = -0.85f;
+        private const float yPositionUp = 0.14f;
+        private float yPositionDown = -1.2f;
         private const float MinShowUpTime = 1f;
         private const float MaxShowUpTime = 3f;
         private const float MinHiddenTime = 1f;
         private const float MaxHiddenTime = 5f;
+        private const float TransitionDuration = 2f;
 
         private float _currentShowOrHideTime;
 
@@ -26,7 +28,8 @@ namespace DefaultNamespace
             TryGetComponent(out _animator);
             _transform = GetComponent<Transform>();
             _currentShowOrHideTime = Random.Range(MinHiddenTime, MaxHiddenTime);
-            Hide();
+            var position = transform.position;
+            _transform.position = new Vector3(position.x, yPositionDown, position.z);
         }
 
         private void FixedUpdate()
@@ -36,36 +39,43 @@ namespace DefaultNamespace
                 _currentShowOrHideTime -= Time.fixedDeltaTime;
                 return;
             }
+
+            if (IsStunned) return;
             
             if (IsHidden)
             {
-                Show();
+                StartCoroutine(ShowHideTransition(transform.position, yPositionUp));
                 _currentShowOrHideTime = Random.Range(MinShowUpTime, MaxShowUpTime);
             }
             else
             {
-                Hide();
+                StartCoroutine(ShowHideTransition(transform.position, yPositionDown));
                 _currentShowOrHideTime = Random.Range(MinHiddenTime, MaxHiddenTime);
             }
         }
 
-        public void Show()
+        private IEnumerator ShowHideTransition(Vector3 startPoint, float destinatedY)
         {
-            IsHidden = false;
-            var p = _transform.position;
-            _transform.position = new Vector3(p.x, yPositionUp, p.z);
+            var endPoint = new Vector3(startPoint.x, destinatedY, startPoint.z);
+            IsHidden = destinatedY < 0;
+
+            var elapsed = 0f;
+            while (Mathf.Abs(transform.position.y - destinatedY) > 0.05f)
+            {
+                transform.localPosition = Vector3.Lerp(startPoint, endPoint, elapsed / TransitionDuration);
+                elapsed += Time.fixedDeltaTime;
+                yield return null;
+            }
         }
 
-        public void Hide()
+        public IEnumerator Stun()
         {
-            IsHidden = true;
-            var p = _transform.position;
-            _transform.position = new Vector3(p.x, yPositionDown, p.z);
-        }
-
-        public void Stun()
-        {
-            
+            // TODO: play stun animation
+            var position = transform.position;
+            _transform.position = new Vector3(position.x, yPositionUp, position.z);
+            yield return new WaitForSeconds(1f);
+            Debug.Log("STUN");
+            yield return StartCoroutine(ShowHideTransition(transform.position, yPositionDown));
         }
     }
 }
