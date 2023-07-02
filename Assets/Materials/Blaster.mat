@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BlackEye
+  m_Name: Blaster
   m_Shader: {fileID: -6465566751694194690, guid: aaffcbe351257d349970c64d4b26db00,
     type: 3}
   m_Parent: {fileID: 0}
@@ -25,7 +25,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: 49cc9689672ff9c4a8ff0c41179a7fec, type: 3}
+        m_Texture: {fileID: 2800000, guid: d31f2df6fded3414b843278311e559f6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -112,20 +112,20 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _Fallof_Teshold: 0.63
+    - _Fallof_Teshold: 0.32
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Lit_Treshhold: -1
+    - _Lit_Treshhold: -0.05
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Rotate: -0.08
-    - _Shadign_Multiplayer: -0.06
-    - _Smoothess: 0.14
+    - _Rotate: 0
+    - _Shadign_Multiplayer: 2
+    - _Smoothess: 0
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -138,10 +138,10 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Patern_Densinity: {r: 100, g: 10, b: 0, a: 0}
+    - _Patern_Densinity: {r: 90, g: 10, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &8114716250780542416
+--- !u!114 &2896295784014417982
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
