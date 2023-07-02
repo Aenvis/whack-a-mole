@@ -18,16 +18,22 @@ public class PlayerController : MonoBehaviour
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (!Physics.Raycast(ray, out hit, Mathf.Infinity, targetLayer)) return;
+        if (!Physics.Raycast(ray, out hit, Mathf.Infinity, targetLayer))
+        {
+            GameManager.Instance.SelectedMole = null;
+            return;
+        }
         
         if (hit.collider.CompareTag("Mole"))
         {
+            GameManager.Instance.SelectedMole = hit.collider.GetComponent<Mole>();
             Debug.DrawRay(transform.position, (hit.transform.position - transform.position) * hit.distance,
                 Color.yellow);
             Debug.Log("Did Hit");
         }
         else
         {
+            GameManager.Instance.SelectedMole = null;
             Debug.DrawRay(transform.position, (hit.transform.position - transform.position) * hit.distance,
                 Color.white);
             Debug.Log("Did not Hit");
