@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     
     [CanBeNull] public Mole SelectedMole { get; set; }
     public bool GameRunning { get; set; }
+    public Action OnGameStart;
     public Action OnGameStop;
 
     private int _score;
@@ -45,6 +46,11 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if(!GameRunning) return;
+
+        if (_time > 0) _time -= Time.deltaTime; 
+        else StopGame();
+        
         if (MolesWhacked <= 0) MolesWhacked = 0;
         ReadInput();
     }
@@ -69,8 +75,9 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        uiManager.OnStartGame();
+        OnGameStart?.Invoke();
         GameRunning = true;
+        _time = StartTime;
     }
 
     public void StopGame()

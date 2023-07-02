@@ -41,6 +41,14 @@ public class Mole : MonoBehaviour
         };
     }
 
+    private void OnDisable()
+    {
+        GameManager.Instance.OnGameStop -= () =>
+        {
+            StartCoroutine(ShowHideTransition(transform.position, YPositionDown));
+        };
+    }
+
     private void FixedUpdate()
     {
         if (!GameManager.Instance.GameRunning) return;
