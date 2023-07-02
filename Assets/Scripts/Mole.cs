@@ -26,6 +26,7 @@ namespace DefaultNamespace
         private void Start()
         {
             TryGetComponent(out _animator);
+            StartCoroutine(RandomizeAnimation());
             _transform = GetComponent<Transform>();
             _currentShowOrHideTime = Random.Range(MinHiddenTime, MaxHiddenTime);
             var position = transform.position;
@@ -52,6 +53,16 @@ namespace DefaultNamespace
                 StartCoroutine(ShowHideTransition(transform.position, YPositionDown));
                 _currentShowOrHideTime = Random.Range(MinHiddenTime, MaxHiddenTime);
             }
+        }
+
+        private IEnumerator RandomizeAnimation()
+        {
+            var delay = Random.Range(MinHiddenTime, MaxHiddenTime - 0.5f);
+
+            yield return new WaitForSeconds(delay);
+            _animator?.Play("idle");
+
+            yield return null;
         }
 
         private IEnumerator ShowHideTransition(Vector3 startPoint, float destinatedY)
