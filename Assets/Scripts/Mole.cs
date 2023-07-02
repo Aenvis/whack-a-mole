@@ -25,15 +25,26 @@ public class Mole : MonoBehaviour
     {
         TryGetComponent(out _animator);
         StartCoroutine(RandomizeAnimation());
+        
         _transform = GetComponent<Transform>();
+
         _currentShowOrHideTime = Random.Range(MinHiddenTime, MaxHiddenTime);
+
         var position = transform.position;
         _transform.position = new Vector3(position.x, YPositionDown, position.z);
+        
         IsHidden = true;
+
+        GameManager.Instance.OnGameStop += () =>
+        {
+            StartCoroutine(ShowHideTransition(transform.position, YPositionDown));
+        };
     }
 
     private void FixedUpdate()
     {
+        if (!GameManager.Instance.GameRunning) return;
+        
         if (_currentShowOrHideTime > 0)
         {
             _currentShowOrHideTime -= Time.fixedDeltaTime;

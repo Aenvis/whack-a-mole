@@ -1,21 +1,18 @@
 using System;
-using System.Collections.Generic;
 using JetBrains.Annotations;
-using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     
-    [SerializeField] private List<Mole> moles;
-    [SerializeField] private TextMeshProUGUI  scoreText;
+    [SerializeField] private UiManager  uiManager;
     
-
     [CanBeNull] public Mole SelectedMole { get; set; }
+    public bool GameRunning { get; set; }
+    public Action OnGameStop;
 
     private int _score;
-
     public int MolesWhacked
     {
         get
@@ -25,7 +22,7 @@ public class GameManager : MonoBehaviour
         set
         {
             _score = value;
-            scoreText.text = $"Score: {_score.ToString()}";
+            uiManager.scoreText.text = $"Score: {_score.ToString()}";
     }
     }
     
@@ -43,6 +40,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         MolesWhacked = 0;
+        GameRunning = false;
     }
 
     private void Update()
@@ -67,5 +65,16 @@ public class GameManager : MonoBehaviour
             MolesWhacked++;
             StartCoroutine(SelectedMole.Stun());
         }
+    }
+
+    public void StartGame()
+    {
+        uiManager.OnStartGame();
+        GameRunning = true;
+    }
+
+    public void StopGame()
+    {
+        OnGameStop?.Invoke();
     }
 }
