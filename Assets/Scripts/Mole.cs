@@ -13,11 +13,11 @@ public class Mole : MonoBehaviour
     private Transform _transform;
     private const float YPositionUp = 0.14f;
     private const float YPositionDown = -1.2f;
-    private const float TransitionDuration = 1f;
-    private const float MinShowUpTime = 1f;
-    private const float MaxShowUpTime = 3f;
+    private const float TransitionDuration = 1.5f;
+    private const float MinShowUpTime = 2f;
+    private const float MaxShowUpTime = 4f;
     private const float MinHiddenTime = 1f;
-    private const float MaxHiddenTime = 5f;
+    private const float MaxHiddenTime = 6f;
 
     private float _currentShowOrHideTime;
 
@@ -29,6 +29,7 @@ public class Mole : MonoBehaviour
         _currentShowOrHideTime = Random.Range(MinHiddenTime, MaxHiddenTime);
         var position = transform.position;
         _transform.position = new Vector3(position.x, YPositionDown, position.z);
+        IsHidden = true;
     }
 
     private void FixedUpdate()
@@ -74,8 +75,9 @@ public class Mole : MonoBehaviour
             elapsed += Time.fixedDeltaTime;
             yield return null;
         }
+        if (!IsStunned && !IsHidden) GameManager.Instance.MolesWhacked--;
         IsHidden = destinatedY < 0;
-
+        
         if (IsStunned && IsHidden) IsStunned = false;
     }
 

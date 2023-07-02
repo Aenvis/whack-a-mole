@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (MolesWhacked <= 0) MolesWhacked = 0;
         ReadInput();
     }
 
@@ -56,7 +57,10 @@ public class GameManager : MonoBehaviour
         {
             if (SelectedMole is null)
             {
-                if (MolesWhacked > 0) MolesWhacked--;
+                if (MolesWhacked > 0)
+                {
+                    MolesWhacked--;
+                }
                 return;
             }
             if (SelectedMole.IsStunned) return; 
