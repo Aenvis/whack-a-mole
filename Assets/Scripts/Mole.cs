@@ -11,8 +11,8 @@ public class Mole : MonoBehaviour
 
     [CanBeNull] private Animator _animator;
     private Transform _transform;
-    private const float YPositionUp = 0.14f;
-    private const float YPositionDown = -1.2f;
+    private const float YPositionUp = -0.46f;
+    private const float YPositionDown = -1.835f;
     private const float TransitionDuration = 1.5f;
     private const float MinShowUpTime = 2f;
     private const float MaxShowUpTime = 4f;
@@ -76,7 +76,7 @@ public class Mole : MonoBehaviour
             yield return null;
         }
         if (!IsStunned && !IsHidden) GameManager.Instance.MolesWhacked--;
-        IsHidden = destinatedY < 0;
+        IsHidden = destinatedY < -1f;
         
         if (IsStunned && IsHidden) IsStunned = false;
     }
