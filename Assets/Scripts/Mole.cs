@@ -28,25 +28,19 @@ public class Mole : MonoBehaviour
         
         _transform = GetComponent<Transform>();
 
-        _currentShowOrHideTime = Random.Range(MinHiddenTime, MaxHiddenTime);
-
         var position = transform.position;
-        _transform.position = new Vector3(position.x, YPositionDown, position.z);
+        _transform.position = new Vector3(position.x, YPositionUp, position.z);
         
         IsHidden = true;
 
-        GameManager.Instance.OnGameStop += () =>
-        {
-            StartCoroutine(ShowHideTransition(transform.position, YPositionDown));
-        };
+        GameManager.Instance.OnGameStart += OnGameStart;
+        GameManager.Instance.OnGameStop += OnGameStop;
     }
 
     private void OnDisable()
     {
-        GameManager.Instance.OnGameStop -= () =>
-        {
-            StartCoroutine(ShowHideTransition(transform.position, YPositionDown));
-        };
+        GameManager.Instance.OnGameStart -= OnGameStart;
+        GameManager.Instance.OnGameStop -= OnGameStop;
     }
 
     private void FixedUpdate()
@@ -71,6 +65,17 @@ public class Mole : MonoBehaviour
             StartCoroutine(ShowHideTransition(transform.position, YPositionDown));
             _currentShowOrHideTime = Random.Range(MinHiddenTime, MaxHiddenTime);
         }
+    }
+
+    private void OnGameStart()
+    {
+        _currentShowOrHideTime = Random.Range(MinHiddenTime, MaxHiddenTime);
+        StartCoroutine(ShowHideTransition(transform.position, YPositionDown));
+    }
+
+    private void OnGameStop()
+    {
+        StartCoroutine(ShowHideTransition(transform.position, YPositionUp));
     }
 
     private IEnumerator RandomizeAnimation()

@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    private const float StartTime = 30f;
+    private const float StartTime = 10f;
 
     private void Awake()
     {
@@ -93,5 +93,11 @@ public class GameManager : MonoBehaviour
     public void StopGame()
     {
         OnGameStop?.Invoke();
+        GameRunning = false;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
