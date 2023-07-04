@@ -6560,7 +6560,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1452193438
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8092,7 +8092,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1844115276
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8832,6 +8832,7 @@ MonoBehaviour:
   onNewRecordScoreText: {fileID: 758642467}
   playButton: {fileID: 1844115275}
   quitButton: {fileID: 1452193437}
+  exitPostGameScreenButton: {fileID: 1112165376}
   postGameScreen: {fileID: 1673787849}
 --- !u!4 &1954137727
 Transform:

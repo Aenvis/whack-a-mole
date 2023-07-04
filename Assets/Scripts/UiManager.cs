@@ -12,6 +12,7 @@ public class UiManager : MonoBehaviour
     public TextMeshProUGUI  onNewRecordScoreText;
     public GameObject playButton;
     public GameObject quitButton;
+    public GameObject exitPostGameScreenButton;
     public GameObject postGameScreen;
 
     private void Start()
@@ -47,6 +48,7 @@ public class UiManager : MonoBehaviour
         inGameScoreText.enabled = false;
         timerText.enabled = false;
         postGameScreen.SetActive(true);
+        exitPostGameScreenButton.SetActive(true);
         newScoreText.enabled = true;
         newScoreText.text = $"YOUR SCORE: {GameManager.Instance.MolesWhacked}";
         if (GameManager.Instance.MolesWhacked > GameManager.Instance.GetMaxScore())
@@ -63,5 +65,6 @@ public class UiManager : MonoBehaviour
         postGameScreen.SetActive(false);
         playButton.SetActive(true);
         quitButton.SetActive(true);
+        exitPostGameScreenButton.SetActive(false);
     }
 }

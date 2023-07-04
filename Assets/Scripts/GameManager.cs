@@ -29,7 +29,8 @@ public class GameManager : MonoBehaviour
         set
         {
             _score = value;
-            uiManager.inGameScoreText.text = $"Score: {_score.ToString()}";
+            if (_score < 0) _score = 0;
+            uiManager.inGameScoreText.text = $"Score: {_score}";
     }
     }
 
@@ -70,7 +71,7 @@ public class GameManager : MonoBehaviour
         if (CurrentTime > 0) CurrentTime -= Time.deltaTime; 
         else StopGame();
         
-        if (MolesWhacked <= 0) MolesWhacked = 0;
+        if (MolesWhacked < 0) MolesWhacked = 0;
         ReadInput();
     }
 
@@ -80,13 +81,11 @@ public class GameManager : MonoBehaviour
         {
             if (SelectedMole is null)
             {
-                if (MolesWhacked > 0)
-                {
-                    MolesWhacked--;
-                }
+                MolesWhacked--;
                 return;
             }
-            if (SelectedMole.IsStunned) return; 
+            if (SelectedMole is not null && SelectedMole.IsStunned) return;
+            
             MolesWhacked++;
             StartCoroutine(SelectedMole.Stun());
         }
@@ -99,6 +98,7 @@ public class GameManager : MonoBehaviour
 
         HighscoreList.Remove(min);
         HighscoreList.Add(score);
+        HighscoreList.Sort();
     }
 
     public int GetMaxScore()

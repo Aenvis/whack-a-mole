@@ -100,15 +100,16 @@ public class Mole : MonoBehaviour
         var endPoint = new Vector3(startPoint.x, destinatedY, startPoint.z);
 
         var elapsed = 0f;
-        while (Mathf.Abs(transform.position.y - destinatedY) > 0.05f)
+        while (Mathf.Abs(transform.position.y - destinatedY) > 0.01f)
         {
             transform.localPosition = Vector3.Lerp(startPoint, endPoint, elapsed / TransitionDuration);
             elapsed += Time.fixedDeltaTime;
             yield return null;
         }
-        if (!IsStunned && !IsHidden) GameManager.Instance.MolesWhacked--;
-        IsHidden = destinatedY < -1f;
         
+        if (!IsStunned && !IsHidden) GameManager.Instance.MolesWhacked--;
+        
+        IsHidden = destinatedY < -1f;
         if (IsStunned && IsHidden) IsStunned = false;
     }
 

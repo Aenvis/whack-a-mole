@@ -16,9 +16,8 @@ public class PlayerController : MonoBehaviour
         Vector3 mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
         
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
 
-        if (!Physics.Raycast(ray, out hit, Mathf.Infinity, targetLayer))
+        if (!Physics.Raycast(ray, out var hit, Mathf.Infinity, targetLayer))
         {
             GameManager.Instance.SelectedMole = null;
             return;
