@@ -16,18 +16,20 @@ public class GameManager : MonoBehaviour
     
     public Action OnGameStart;
     public Action OnGameStop;
+    public Action OnExitPostGameScreen;
 
     private int _score;
     public int MolesWhacked
     {
         get
         {
+            if (_score < 0) _score = 0;
             return _score;
         }
         set
         {
             _score = value;
-            uiManager.scoreText.text = $"Score: {_score.ToString()}";
+            uiManager.inGameScoreText.text = $"Score: {_score.ToString()}";
     }
     }
 
@@ -99,6 +101,9 @@ public class GameManager : MonoBehaviour
         HighscoreList.Add(score);
     }
 
+    public int GetMaxScore()
+        => HighscoreList.Max();
+
     public void StartGame()
     {
         OnGameStart?.Invoke();
@@ -112,6 +117,11 @@ public class GameManager : MonoBehaviour
         OnGameStop?.Invoke();
         GameRunning = false;
         TryAddNewHighscore(MolesWhacked);
+    }
+
+    public void ExitPostGameScreen()
+    {
+        OnExitPostGameScreen?.Invoke();
     }
 
     public void QuitGame()

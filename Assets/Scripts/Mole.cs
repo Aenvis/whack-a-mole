@@ -35,12 +35,14 @@ public class Mole : MonoBehaviour
 
         GameManager.Instance.OnGameStart += OnGameStart;
         GameManager.Instance.OnGameStop += OnGameStop;
+        GameManager.Instance.OnExitPostGameScreen += OnExitPostGameScreen;
     }
 
     private void OnDisable()
     {
         GameManager.Instance.OnGameStart -= OnGameStart;
         GameManager.Instance.OnGameStop -= OnGameStop;
+        GameManager.Instance.OnExitPostGameScreen -= OnExitPostGameScreen;
     }
 
     private void FixedUpdate()
@@ -74,6 +76,11 @@ public class Mole : MonoBehaviour
     }
 
     private void OnGameStop()
+    {
+        StartCoroutine(ShowHideTransition(transform.position, YPositionUp));
+    }
+
+    private void OnExitPostGameScreen()
     {
         StartCoroutine(ShowHideTransition(transform.position, YPositionUp));
     }
