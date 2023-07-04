@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -10,6 +12,8 @@ public class GameManager : MonoBehaviour
     
     [CanBeNull] public Mole SelectedMole { get; set; }
     public bool GameRunning { get; set; }
+    public List<int> HighscoreList { get; set; } = new List<int>(5);
+    
     public Action OnGameStart;
     public Action OnGameStop;
 
@@ -39,6 +43,7 @@ public class GameManager : MonoBehaviour
     }
     
     private const float StartTime = 10f;
+    private readonly string _highscoreKey = "highscore";
 
     private void Awake()
     {
@@ -50,6 +55,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        HighscoreList = SaveLoadHighscoreList.Load(_highscoreKey);
+        if(!HighscoreList.Any()) SeedHighscoreData.Initialize(HighscoreList);
         MolesWhacked = 0;
         GameRunning = false;
     }
@@ -83,21 +90,33 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void TryAddNewHighscore(int score)
+    {
+        var min = HighscoreList.Min();
+        if (score <= min) return;
+
+        HighscoreList.Remove(min);
+        HighscoreList.Add(score);
+    }
+
     public void StartGame()
     {
         OnGameStart?.Invoke();
         GameRunning = true;
         CurrentTime = StartTime + 1f;
+        MolesWhacked = 0;
     }
 
     public void StopGame()
     {
         OnGameStop?.Invoke();
         GameRunning = false;
+        TryAddNewHighscore(MolesWhacked);
     }
 
     public void QuitGame()
     {
+        SaveLoadHighscoreList.Save(_highscoreKey, HighscoreList);
         Application.Quit();
     }
 }
