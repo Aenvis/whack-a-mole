@@ -93,6 +93,13 @@ public class GameManager : MonoBehaviour
 
     private void TryAddNewHighscore(int score)
     {
+        if (HighscoreList.Count < 5)
+        {
+            HighscoreList.Add(score);
+            HighscoreList.Sort();
+            return;
+        }
+        
         var min = HighscoreList.Min();
         if (score <= min) return;
 

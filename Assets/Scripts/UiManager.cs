@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -10,6 +11,7 @@ public class UiManager : MonoBehaviour
     public TextMeshProUGUI  timerText;
     public TextMeshProUGUI  newScoreText;
     public TextMeshProUGUI  onNewRecordScoreText;
+    public TextMeshProUGUI  highscorerankingText;
     public GameObject playButton;
     public GameObject quitButton;
     public GameObject exitPostGameScreenButton;
@@ -22,7 +24,8 @@ public class UiManager : MonoBehaviour
         newScoreText.enabled = false;
         onNewRecordScoreText.enabled = false;
         postGameScreen.SetActive(false);
-
+        UpdateRanking();
+        
         GameManager.Instance.OnGameStart += OnStartGame;
         GameManager.Instance.OnGameStop += OnStopGame;
         GameManager.Instance.OnExitPostGameScreen += OnExitPostGameScreen;
@@ -41,6 +44,7 @@ public class UiManager : MonoBehaviour
         timerText.enabled = true;
         playButton.SetActive(false);
         quitButton.SetActive(false);
+        highscorerankingText.enabled = false;
     }
 
     public void OnStopGame()
@@ -66,5 +70,23 @@ public class UiManager : MonoBehaviour
         playButton.SetActive(true);
         quitButton.SetActive(true);
         exitPostGameScreenButton.SetActive(false);
+        UpdateRanking();
+        highscorerankingText.enabled = true;
+    }
+
+    private void UpdateRanking()
+    {
+        var ranking = GameManager.Instance.HighscoreList;
+
+        StringBuilder strBuilder = new("BEST SCORE:\n");
+
+        for (int i = 0; i < ranking.Count; i++)
+        {
+            strBuilder.Append($"{i+1}. {ranking[ranking.Count - i - 1]}\n");
+        }
+
+        var output = strBuilder.ToString();
+
+        highscorerankingText.text = output;
     }
 }

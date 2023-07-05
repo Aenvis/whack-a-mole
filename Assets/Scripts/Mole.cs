@@ -71,6 +71,7 @@ public class Mole : MonoBehaviour
 
     private void OnGameStart()
     {
+        IsStunned = false;
         _currentShowOrHideTime = Random.Range(MinHiddenTime, MaxHiddenTime);
         StartCoroutine(ShowHideTransition(transform.position, YPositionDown));
     }
@@ -106,8 +107,10 @@ public class Mole : MonoBehaviour
             elapsed += Time.fixedDeltaTime;
             yield return null;
         }
+
+        if (!GameManager.Instance.GameRunning) yield return null;
         
-        if (!IsStunned && !IsHidden) GameManager.Instance.MolesWhacked--;
+        // if (!IsStunned && !IsHidden) GameManager.Instance.MolesWhacked--;
         
         IsHidden = destinatedY < -1f;
         if (IsStunned && IsHidden) IsStunned = false;
