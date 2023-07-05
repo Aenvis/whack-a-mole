@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text;
 using TMPro;
 using UnityEngine;
@@ -76,13 +77,14 @@ public class UiManager : MonoBehaviour
 
     private void UpdateRanking()
     {
-        var ranking = GameManager.Instance.HighscoreList;
+        var ranking = GameManager.Instance.ScoreRankingSet;
 
         StringBuilder strBuilder = new("BEST SCORE:\n");
 
-        for (int i = 0; i < ranking.Count; i++)
+        var rankingList = ranking.ToList();
+        for (int i = 0; i < rankingList.Count; i++)
         {
-            strBuilder.Append($"{i+1}. {ranking[ranking.Count - i - 1]}\n");
+            strBuilder.Append($"{i+1}. {rankingList[rankingList.Count - i - 1]}\n");
         }
 
         var output = strBuilder.ToString();

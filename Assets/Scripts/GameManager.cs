@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     
     [CanBeNull] public Mole SelectedMole { get; set; }
     public bool GameRunning { get; set; }
-    public List<int> HighscoreList { get; set; } = new List<int>(5);
+    public SortedSet<int> ScoreRankingSet { get; set; } = new SortedSet<int>();
     
     public Action OnGameStart;
     public Action OnGameStop;
@@ -58,8 +58,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        HighscoreList = SaveLoadHighscoreList.Load(_highscoreKey);
-        if(!HighscoreList.Any()) SeedHighscoreData.Initialize(HighscoreList);
+        ScoreRankingSet = SaveLoadHighscoreList.Load(_highscoreKey);
         MolesWhacked = 0;
         GameRunning = false;
     }
@@ -93,23 +92,23 @@ public class GameManager : MonoBehaviour
 
     private void TryAddNewHighscore(int score)
     {
-        if (HighscoreList.Count < 5)
+        if (ScoreRankingSet.Contains(score)) return;
+        
+        if (ScoreRankingSet.Count < 5)
         {
-            HighscoreList.Add(score);
-            HighscoreList.Sort();
+            ScoreRankingSet.Add(score);
             return;
         }
         
-        var min = HighscoreList.Min();
+        var min = ScoreRankingSet.Min();
         if (score <= min) return;
 
-        HighscoreList.Remove(min);
-        HighscoreList.Add(score);
-        HighscoreList.Sort();
+        ScoreRankingSet.Remove(min);
+        ScoreRankingSet.Add(score);
     }
 
     public int GetMaxScore()
-        => HighscoreList.Max();
+        => ScoreRankingSet.Max();
 
     public void StartGame()
     {
@@ -133,7 +132,7 @@ public class GameManager : MonoBehaviour
 
     public void QuitGame()
     {
-        SaveLoadHighscoreList.Save(_highscoreKey, HighscoreList);
+        SaveLoadHighscoreList.Save(_highscoreKey, ScoreRankingSet);
         Application.Quit();
     }
 }

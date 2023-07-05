@@ -5,7 +5,7 @@ using UnityEngine;
 
 public static class SaveLoadHighscoreList
 {
-    public static void Save(string key, List<int> data)
+    public static void Save(string key, SortedSet<int> data)
     {
         string value = String.Join(',', data);
         
@@ -13,9 +13,9 @@ public static class SaveLoadHighscoreList
         PlayerPrefs.Save();
     }
 
-    public static List<int> Load(string key)
+    public static SortedSet<int> Load(string key)
     {
-        List<int> result = new List<int>();
+        SortedSet<int> result = new SortedSet<int>();
 
         string dataStr = PlayerPrefs.GetString(key);
         string[] data = dataStr.Split(',');
@@ -27,8 +27,7 @@ public static class SaveLoadHighscoreList
                 result.Add(val);
             }
         }
-
-        result.Sort();
+        
         return result;
     }
 }
