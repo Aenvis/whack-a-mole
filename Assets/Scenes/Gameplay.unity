@@ -1908,6 +1908,129 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 206426478}
   m_SourcePrefab: {fileID: 100100000, guid: be330448fe432734eaa8887f84df708e, type: 3}
+--- !u!1001 &431260244
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 542541333964186507, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+        type: 3}
+      propertyPath: m_Name
+      value: Blaster
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623935029916688333, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623935029916688333, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623935029916688333, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623935029916688333, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623935029916688333, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.857
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623935029916688333, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.103
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623935029916688333, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.996
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623935029916688333, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.96271694
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623935029916688333, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.26370287
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623935029916688333, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.056657966
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623935029916688333, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.02066113
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623935029916688333, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 30.358
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623935029916688333, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 7.993
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623935029916688333, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 4.631
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623935029916688333, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573687429482252808, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+        type: 3}
+      propertyPath: weaponEnd
+      value: 
+      objectReference: {fileID: 1378659759}
+    - target: {fileID: 4573687429482252808, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573687429482252808, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+        type: 3}
+      propertyPath: projectileSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573687429482252808, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+        type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 4301782005401136522, guid: d42faac9c235a91448696b018f05febd,
+        type: 3}
+    - target: {fileID: 4573687429482252808, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+        type: 3}
+      propertyPath: projectileSpawnPoint
+      value: 
+      objectReference: {fileID: 2053765888}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1623935029916688333, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2053765888}
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e2e7b617a0211f4cb6971139e8eeafa, type: 3}
 --- !u!1001 &485513434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5962,6 +6085,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc3e07c5187174a4388e815ff2dd34e2, type: 3}
+--- !u!4 &1378659759 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1623935029916688333, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+    type: 3}
+  m_PrefabInstance: {fileID: 431260244}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1380502650
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7214,9 +7343,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1643241640}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Moles
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9198,6 +9327,37 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 90506097}
   m_SourcePrefab: {fileID: 100100000, guid: be330448fe432734eaa8887f84df708e, type: 3}
+--- !u!1 &2053765887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2053765888}
+  m_Layer: 0
+  m_Name: WeaponEnd
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2053765888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053765887}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.017, y: 0.22, z: 1.989}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1378659759}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2055728612
 GameObject:
   m_ObjectHideFlags: 0
@@ -9834,7 +9994,7 @@ GameObject:
   - component: {fileID: 2049643380007923718}
   m_Layer: 3
   m_Name: Helmet
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9851,7 +10011,7 @@ GameObject:
   - component: {fileID: 9050590553569611534}
   m_Layer: 3
   m_Name: Eyes
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10716,7 +10876,7 @@ GameObject:
   - component: {fileID: 6727617290483151675}
   m_Layer: 3
   m_Name: MoleBoddy
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10765,7 +10925,7 @@ GameObject:
   - component: {fileID: 2956568314433058874}
   m_Layer: 3
   m_Name: Window
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10829,7 +10989,7 @@ GameObject:
   - component: {fileID: 3086824602611000779}
   m_Layer: 3
   m_Name: Anten
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14848,7 +15008,7 @@ GameObject:
   - component: {fileID: 2780956860845029933}
   m_Layer: 3
   m_Name: Armature
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19546,7 +19706,7 @@ GameObject:
   - component: {fileID: 5000376204378734038}
   m_Layer: 3
   m_Name: Armature
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19562,7 +19722,7 @@ GameObject:
   - component: {fileID: 5000376204224230784}
   m_Layer: 3
   m_Name: Armature
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19578,7 +19738,7 @@ GameObject:
   - component: {fileID: 5000376204004596067}
   m_Layer: 3
   m_Name: Armature
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19594,7 +19754,7 @@ GameObject:
   - component: {fileID: 5000376203781087002}
   m_Layer: 3
   m_Name: Armature
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19610,7 +19770,7 @@ GameObject:
   - component: {fileID: 5000376203755553385}
   m_Layer: 3
   m_Name: Armature
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19626,7 +19786,7 @@ GameObject:
   - component: {fileID: 5000376203819409921}
   m_Layer: 3
   m_Name: Armature
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19642,7 +19802,7 @@ GameObject:
   - component: {fileID: 5000376203629356746}
   m_Layer: 3
   m_Name: Armature
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19658,7 +19818,7 @@ GameObject:
   - component: {fileID: 5000376205640032342}
   m_Layer: 3
   m_Name: Armature
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19674,7 +19834,7 @@ GameObject:
   - component: {fileID: 5000376205697194986}
   m_Layer: 3
   m_Name: Armature
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19690,7 +19850,7 @@ GameObject:
   - component: {fileID: 5000376205227016463}
   m_Layer: 3
   m_Name: Armature
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19738,7 +19898,7 @@ GameObject:
   - component: {fileID: 2191350888365703331}
   m_Layer: 3
   m_Name: Eyes
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19755,7 +19915,7 @@ GameObject:
   - component: {fileID: 2191350888211204341}
   m_Layer: 3
   m_Name: Eyes
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19772,7 +19932,7 @@ GameObject:
   - component: {fileID: 2191350888847332329}
   m_Layer: 3
   m_Name: Eyes
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19789,7 +19949,7 @@ GameObject:
   - component: {fileID: 2191350888657278754}
   m_Layer: 3
   m_Name: Eyes
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19806,7 +19966,7 @@ GameObject:
   - component: {fileID: 2191350888695573049}
   m_Layer: 3
   m_Name: Eyes
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19823,7 +19983,7 @@ GameObject:
   - component: {fileID: 2191350888704325450}
   m_Layer: 3
   m_Name: Eyes
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19840,7 +20000,7 @@ GameObject:
   - component: {fileID: 2191350889122180160}
   m_Layer: 3
   m_Name: Eyes
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19857,7 +20017,7 @@ GameObject:
   - component: {fileID: 2191350887316336329}
   m_Layer: 3
   m_Name: Eyes
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19874,7 +20034,7 @@ GameObject:
   - component: {fileID: 2191350887356749173}
   m_Layer: 3
   m_Name: Eyes
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19891,7 +20051,7 @@ GameObject:
   - component: {fileID: 2191350887916565548}
   m_Layer: 3
   m_Name: Eyes
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19908,7 +20068,7 @@ GameObject:
   - component: {fileID: 9188150173857835645}
   m_Layer: 3
   m_Name: Helmet
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19925,7 +20085,7 @@ GameObject:
   - component: {fileID: 9188150173797552577}
   m_Layer: 3
   m_Name: Helmet
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19942,7 +20102,7 @@ GameObject:
   - component: {fileID: 9188150173193161508}
   m_Layer: 3
   m_Name: Helmet
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19959,7 +20119,7 @@ GameObject:
   - component: {fileID: 9188150172584640427}
   m_Layer: 3
   m_Name: Helmet
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19976,7 +20136,7 @@ GameObject:
   - component: {fileID: 9188150172428761085}
   m_Layer: 3
   m_Name: Helmet
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19993,7 +20153,7 @@ GameObject:
   - component: {fileID: 9188150172264338248}
   m_Layer: 3
   m_Name: Helmet
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20010,7 +20170,7 @@ GameObject:
   - component: {fileID: 9188150172107205857}
   m_Layer: 3
   m_Name: Helmet
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20027,7 +20187,7 @@ GameObject:
   - component: {fileID: 9188150171981744194}
   m_Layer: 3
   m_Name: Helmet
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20044,7 +20204,7 @@ GameObject:
   - component: {fileID: 9188150171956942129}
   m_Layer: 3
   m_Name: Helmet
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20061,7 +20221,7 @@ GameObject:
   - component: {fileID: 9188150171919771690}
   m_Layer: 3
   m_Name: Helmet
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20302,7 +20462,7 @@ GameObject:
   - component: {fileID: 4516646869316864025}
   m_Layer: 3
   m_Name: MoleBoddy
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20319,7 +20479,7 @@ GameObject:
   - component: {fileID: 4516646868716475132}
   m_Layer: 3
   m_Name: MoleBoddy
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20336,7 +20496,7 @@ GameObject:
   - component: {fileID: 4516646868723247424}
   m_Layer: 3
   m_Name: MoleBoddy
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20353,7 +20513,7 @@ GameObject:
   - component: {fileID: 4516646870254014581}
   m_Layer: 3
   m_Name: MoleBoddy
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20370,7 +20530,7 @@ GameObject:
   - component: {fileID: 4516646870057265943}
   m_Layer: 3
   m_Name: MoleBoddy
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20387,7 +20547,7 @@ GameObject:
   - component: {fileID: 4516646870071036799}
   m_Layer: 3
   m_Name: MoleBoddy
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20404,7 +20564,7 @@ GameObject:
   - component: {fileID: 4516646870095517196}
   m_Layer: 3
   m_Name: MoleBoddy
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20421,7 +20581,7 @@ GameObject:
   - component: {fileID: 4516646869945331676}
   m_Layer: 3
   m_Name: MoleBoddy
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20438,7 +20598,7 @@ GameObject:
   - component: {fileID: 4516646869611525312}
   m_Layer: 3
   m_Name: MoleBoddy
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20455,7 +20615,7 @@ GameObject:
   - component: {fileID: 4516646869463841942}
   m_Layer: 3
   m_Name: MoleBoddy
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20685,7 +20845,7 @@ GameObject:
   - component: {fileID: 5401154170980926232}
   m_Layer: 3
   m_Name: Window
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20702,7 +20862,7 @@ GameObject:
   - component: {fileID: 5401154171574559297}
   m_Layer: 3
   m_Name: Window
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20719,7 +20879,7 @@ GameObject:
   - component: {fileID: 5401154171582470653}
   m_Layer: 3
   m_Name: Window
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20736,7 +20896,7 @@ GameObject:
   - component: {fileID: 5401154171924503412}
   m_Layer: 3
   m_Name: Window
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20753,7 +20913,7 @@ GameObject:
   - component: {fileID: 5401154171837988990}
   m_Layer: 3
   m_Name: Window
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20770,7 +20930,7 @@ GameObject:
   - component: {fileID: 5401154171814501645}
   m_Layer: 3
   m_Name: Window
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20787,7 +20947,7 @@ GameObject:
   - component: {fileID: 5401154171851743254}
   m_Layer: 3
   m_Name: Window
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20804,7 +20964,7 @@ GameObject:
   - component: {fileID: 5401154171695768797}
   m_Layer: 3
   m_Name: Window
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20821,7 +20981,7 @@ GameObject:
   - component: {fileID: 5401154172296904641}
   m_Layer: 3
   m_Name: Window
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20838,7 +20998,7 @@ GameObject:
   - component: {fileID: 5401154172176742295}
   m_Layer: 3
   m_Name: Window
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21325,7 +21485,7 @@ GameObject:
   - component: {fileID: 5270773638609709670}
   m_Layer: 3
   m_Name: Anten
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21342,7 +21502,7 @@ GameObject:
   - component: {fileID: 5270773638755623472}
   m_Layer: 3
   m_Name: Anten
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21359,7 +21519,7 @@ GameObject:
   - component: {fileID: 5270773639072856364}
   m_Layer: 3
   m_Name: Anten
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21376,7 +21536,7 @@ GameObject:
   - component: {fileID: 5270773639214554511}
   m_Layer: 3
   m_Name: Anten
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21393,7 +21553,7 @@ GameObject:
   - component: {fileID: 5270773639224672508}
   m_Layer: 3
   m_Name: Anten
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21410,7 +21570,7 @@ GameObject:
   - component: {fileID: 5270773639253474791}
   m_Layer: 3
   m_Name: Anten
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21427,7 +21587,7 @@ GameObject:
   - component: {fileID: 5270773638927763077}
   m_Layer: 3
   m_Name: Anten
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21444,7 +21604,7 @@ GameObject:
   - component: {fileID: 5270773637332844464}
   m_Layer: 3
   m_Name: Anten
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21461,7 +21621,7 @@ GameObject:
   - component: {fileID: 5270773637374231564}
   m_Layer: 3
   m_Name: Anten
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21478,7 +21638,7 @@ GameObject:
   - component: {fileID: 5270773637976530665}
   m_Layer: 3
   m_Name: Anten
-  m_TagString: Untagged
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

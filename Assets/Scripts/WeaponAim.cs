@@ -1,27 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-
+// CHAT GPT GENERATED STUFF
 public class WeaponAim : MonoBehaviour
 {
     public Transform weaponEnd; // Koñcówka broni
     public Transform projectileSpawnPoint; // Miejsce wystrza³u pocisku
-    public float rotationSpeed = 10f; // Prêdkoœæ obrotu broni
+    public float rotationSpeed; // Prêdkoœæ obrotu broni
     public GameObject projectilePrefab; // Prefab pocisku
-    public float projectileSpeed = 10f; // Prêdkoœæ pocisku
+    public float projectileSpeed; // Prêdkoœæ pocisku
 
     public AnimationClip recoilAnimation; // Animacja ruchu do góry
     public GameObject muzzleFlashPrefab; // Prefab efektu wystrza³u
 
     private bool isFiring = false;
 
-    void Update()
+    void FixedUpdate()
     {
         // Pobierz pozycjê kursora myszki w przestrzeni œwiata
         Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-
+        
         // SprawdŸ, czy promieñ z myszki przecina obiekty w scenie
         if (Physics.Raycast(mouseRay, out hit))
         {
@@ -35,7 +33,7 @@ public class WeaponAim : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(direction);
 
             // Obróæ koñcówkê broni w kierunku celu z zadan¹ prêdkoœci¹
-            weaponEnd.rotation = Quaternion.RotateTowards(weaponEnd.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            weaponEnd.rotation = Quaternion.RotateTowards(weaponEnd.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
         }
 
         // Obs³uga wystrza³u po wciœniêciu lewego przycisku myszy
@@ -48,6 +46,12 @@ public class WeaponAim : MonoBehaviour
 
     void Fire()
     {
+        // if (!_hit.transform.CompareTag("Mole"))
+        // {
+        //     isFiring = false;
+        //     return;
+        // }
+        
         // Odtwórz animacjê ruchu do góry
         if (recoilAnimation != null)
         {
@@ -60,18 +64,14 @@ public class WeaponAim : MonoBehaviour
             Instantiate(muzzleFlashPrefab, weaponEnd.position, weaponEnd.rotation);
         }
 
+        var hit = GameManager.Instance.SelectedMole;
         // Wystrza³ pocisku
-        if (projectilePrefab != null && projectileSpawnPoint != null)
+        if (hit is not null)
         {
-            GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
-            Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
-            if (projectileRb != null)
-            {
-                projectileRb.velocity = projectile.transform.forward * projectileSpeed;
-            }
+            Bullet projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation).AddComponent<Bullet>();
+            StartCoroutine(projectile.Shoot(hit.transform.position, projectileSpeed));
         }
 
-        // Zakoñcz wystrza³
         isFiring = false;
     }
 }
