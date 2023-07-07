@@ -123,6 +123,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &23153169 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1207846476692795096, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+    type: 3}
+  m_PrefabInstance: {fileID: 431260244}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &33327027
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2161,7 +2167,7 @@ PrefabInstance:
         type: 3}
       propertyPath: weaponEnd
       value: 
-      objectReference: {fileID: 1378659759}
+      objectReference: {fileID: 1084760728}
     - target: {fileID: 4573687429482252808, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
         type: 3}
       propertyPath: rotationSpeed
@@ -2182,14 +2188,10 @@ PrefabInstance:
         type: 3}
       propertyPath: projectileSpawnPoint
       value: 
-      objectReference: {fileID: 2053765888}
+      objectReference: {fileID: 23153169}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 1623935029916688333, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2053765888}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e2e7b617a0211f4cb6971139e8eeafa, type: 3}
 --- !u!1001 &485513434
@@ -4403,6 +4405,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1357247493}
   m_SourcePrefab: {fileID: 100100000, guid: be330448fe432734eaa8887f84df708e, type: 3}
+--- !u!4 &1084760728 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8371554088967501770, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+    type: 3}
+  m_PrefabInstance: {fileID: 431260244}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1112165376
 GameObject:
   m_ObjectHideFlags: 0
@@ -6258,12 +6266,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc3e07c5187174a4388e815ff2dd34e2, type: 3}
---- !u!4 &1378659759 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1623935029916688333, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
-    type: 3}
-  m_PrefabInstance: {fileID: 431260244}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1380502650
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9509,37 +9511,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 90506097}
   m_SourcePrefab: {fileID: 100100000, guid: be330448fe432734eaa8887f84df708e, type: 3}
---- !u!1 &2053765887
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2053765888}
-  m_Layer: 0
-  m_Name: WeaponEnd
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2053765888
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2053765887}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.017, y: 0.22, z: 1.989}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1378659759}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2055728612
 GameObject:
   m_ObjectHideFlags: 0

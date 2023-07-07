@@ -30,6 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8371554088967501770}
+  - {fileID: 1207846476692795096}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -52,6 +53,37 @@ MonoBehaviour:
   projectileSpeed: 30
   recoilAnimation: {fileID: 0}
   muzzleFlashPrefab: {fileID: 0}
+--- !u!1 &2003553977955802871
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1207846476692795096}
+  m_Layer: 0
+  m_Name: Wepon End
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1207846476692795096
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003553977955802871}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.2651, z: 1.912}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1623935029916688333}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &8333635595081158689
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73,12 +105,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b08a9d4dc28707d4dae436c0391c6cdf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.119
+      value: 0.214
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b08a9d4dc28707d4dae436c0391c6cdf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.55
+      value: -0.838
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b08a9d4dc28707d4dae436c0391c6cdf,
         type: 3}
