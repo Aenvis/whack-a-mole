@@ -2180,6 +2180,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4573687429482252808, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
         type: 3}
+      propertyPath: recoilAnimation
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573687429482252808, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+        type: 3}
       propertyPath: projectilePrefab
       value: 
       objectReference: {fileID: 4301782005401136522, guid: d42faac9c235a91448696b018f05febd,
@@ -2192,7 +2197,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 542541333964186507, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1378659761}
   m_SourcePrefab: {fileID: 100100000, guid: 4e2e7b617a0211f4cb6971139e8eeafa, type: 3}
 --- !u!1001 &485513434
 PrefabInstance:
@@ -2829,6 +2838,12 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &622325804 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 542541333964186507, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
+    type: 3}
+  m_PrefabInstance: {fileID: 431260244}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &637387203 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: be330448fe432734eaa8887f84df708e,
@@ -6266,6 +6281,27 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc3e07c5187174a4388e815ff2dd34e2, type: 3}
+--- !u!95 &1378659761
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622325804}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: b08a9d4dc28707d4dae436c0391c6cdf, type: 3}
+  m_Controller: {fileID: 9100000, guid: 0d2fabff03dfe2e4e91a0a488c86bd21, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1380502650
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -30,7 +30,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8371554088967501770}
-  - {fileID: 1207846476692795096}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -51,7 +50,6 @@ MonoBehaviour:
   rotationSpeed: 20
   projectilePrefab: {fileID: 0}
   projectileSpeed: 30
-  recoilAnimation: {fileID: 0}
   muzzleFlashPrefab: {fileID: 0}
 --- !u!1 &2003553977955802871
 GameObject:
@@ -76,12 +74,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2003553977955802871}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2651, z: 1.912}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -9.3132246e-10, w: 1}
+  m_LocalPosition: {x: 0, y: 0.015862701, z: 0.8536665}
+  m_LocalScale: {x: 0.31042418, y: 0.31042418, z: 0.31042418}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1623935029916688333}
+  m_Father: {fileID: 8371554088967501770}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &8333635595081158689
@@ -179,7 +177,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 2396243e6eeeac946be049f8b9b5aa71, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b08a9d4dc28707d4dae436c0391c6cdf,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1207846476692795096}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b08a9d4dc28707d4dae436c0391c6cdf, type: 3}
 --- !u!4 &8371554088967501770 stripped

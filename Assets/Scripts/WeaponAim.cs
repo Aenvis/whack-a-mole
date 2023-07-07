@@ -9,10 +9,10 @@ public class WeaponAim : MonoBehaviour
     public GameObject projectilePrefab; // Prefab pocisku
     public float projectileSpeed; // Prêdkoœæ pocisku
 
-    public AnimationClip recoilAnimation; // Animacja ruchu do góry
     public GameObject muzzleFlashPrefab; // Prefab efektu wystrza³u
 
     private bool isFiring = false;
+    private Animator AnimR;
 
     void FixedUpdate()
     {
@@ -46,6 +46,7 @@ public class WeaponAim : MonoBehaviour
 
     void Fire()
     {
+        
         // if (!_hit.transform.CompareTag("Mole"))
         // {
         //     isFiring = false;
@@ -53,9 +54,9 @@ public class WeaponAim : MonoBehaviour
         // }
         
         // Odtwórz animacjê ruchu do góry
-        if (recoilAnimation != null)
         {
-            GetComponent<Animation>().Play(recoilAnimation.name);
+            AnimR = GetComponent<Animator>();
+            AnimR.SetTrigger("Recoil");
         }
 
         // Wygeneruj efekt wystrza³u
