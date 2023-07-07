@@ -19,6 +19,7 @@ public class Mole : MonoBehaviour
     private const float MinHiddenTime = 1f;
     private const float MaxHiddenTime = 6f;
 
+
     private float _currentShowOrHideTime;
 
     private void Start()
@@ -121,8 +122,15 @@ public class Mole : MonoBehaviour
         // TODO: play stun animation
         IsStunned = true;
         var position = transform.position;
+
+        _animator = GetComponent<Animator>();
+        _animator.SetInteger("StunIndex", Random.Range(0, 2));
+        _animator.SetTrigger("Stun");
+
         _transform.position = new Vector3(position.x, YPositionUp, position.z);
         yield return new WaitForSeconds(0.5f);
         yield return StartCoroutine(ShowHideTransition(position, YPositionDown));
+
+        
     }
 }
