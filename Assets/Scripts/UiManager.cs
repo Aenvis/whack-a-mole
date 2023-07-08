@@ -2,6 +2,7 @@
 using System.Text;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
@@ -33,6 +34,9 @@ public class UiManager : MonoBehaviour
         GameManager.Instance.OnGameStart += OnStartGame;
         GameManager.Instance.OnGameStop += OnStopGame;
         GameManager.Instance.OnExitPostGameScreen += OnExitPostGameScreen;
+        playButton.GetComponent<Button>().onClick.AddListener(GameManager.Instance.StartGame);
+        quitButton.GetComponent<Button>().onClick.AddListener(GameManager.Instance.QuitGame);
+        exitPostGameScreenButton.GetComponent<Button>().onClick.AddListener(GameManager.Instance.ExitPostGameScreen);
     }
 
     private void OnDisable()

@@ -1234,7 +1234,7 @@ PrefabInstance:
     - target: {fileID: 4573687429482252808, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
         type: 3}
       propertyPath: projectileSpeed
-      value: 20
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4573687429482252808, guid: 4e2e7b617a0211f4cb6971139e8eeafa,
         type: 3}
@@ -2733,19 +2733,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1112165379}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 540811067}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ExitPostGameScreen
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1112165379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4095,19 +4083,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1452193440}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 540811067}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: QuitGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1452193440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5471,19 +5447,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1844115278}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 540811067}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: StartGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1844115278
 MonoBehaviour:
   m_ObjectHideFlags: 0
