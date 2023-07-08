@@ -6,20 +6,25 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private const float StartTime = 15f;
     public static GameManager Instance;
-    
-    [SerializeField] private UiManager  uiManager;
-    
-    [CanBeNull] public Mole SelectedMole { get; set; }
-    public bool GameRunning { get; set; }
-    public SortedSet<int> ScoreRankingSet { get; set; } = new SortedSet<int>();
-    
-    public Action OnGameStart;
-    public Action OnGameStop;
-    public Action OnExitPostGameScreen;
-    public Action<string> OnNewTrack;
+
+    [SerializeField] private UiManager uiManager;
+    private readonly string _highscoreKey = "highscore";
 
     private int _score;
+
+    private float _time;
+
+    public Action OnExitPostGameScreen;
+    public Action OnGameStart;
+    public Action OnGameStop;
+    public Action<string> OnNewTrack;
+
+    [CanBeNull] public Mole SelectedMole { get; set; }
+    public bool GameRunning { get; set; }
+    public SortedSet<int> ScoreRankingSet { get; set; } = new();
+
     public int MolesWhacked
     {
         get
@@ -32,10 +37,9 @@ public class GameManager : MonoBehaviour
             _score = value;
             if (_score < 0) _score = 0;
             uiManager.inGameScoreText.text = $"Score: {_score}";
-    }
+        }
     }
 
-    private float _time;
     public float CurrentTime
     {
         get => _time;
@@ -45,9 +49,6 @@ public class GameManager : MonoBehaviour
             uiManager.timerText.text = $"time left: {(int)_time}";
         }
     }
-    
-    private const float StartTime = 15f;
-    private readonly string _highscoreKey = "highscore";
 
     private void Awake()
     {
@@ -66,11 +67,11 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(!GameRunning) return;
+        if (!GameRunning) return;
 
-        if (CurrentTime > 0) CurrentTime -= Time.deltaTime; 
+        if (CurrentTime > 0) CurrentTime -= Time.deltaTime;
         else StopGame();
-        
+
         if (MolesWhacked < 0) MolesWhacked = 0;
         ReadInput();
     }
@@ -84,8 +85,9 @@ public class GameManager : MonoBehaviour
                 MolesWhacked--;
                 return;
             }
+
             if (SelectedMole is not null && SelectedMole.IsStunned) return;
-            
+
             MolesWhacked++;
             StartCoroutine(SelectedMole.Stun());
         }
@@ -94,13 +96,13 @@ public class GameManager : MonoBehaviour
     private void TryAddNewHighscore(int score)
     {
         if (ScoreRankingSet.Contains(score)) return;
-        
+
         if (ScoreRankingSet.Count < 5)
         {
             ScoreRankingSet.Add(score);
             return;
         }
-        
+
         var min = ScoreRankingSet.Min();
         if (score <= min) return;
 
@@ -109,7 +111,9 @@ public class GameManager : MonoBehaviour
     }
 
     public int GetMaxScore()
-        => ScoreRankingSet.Max();
+    {
+        return ScoreRankingSet.Max();
+    }
 
     public void StartGame()
     {

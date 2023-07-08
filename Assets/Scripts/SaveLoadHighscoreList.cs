@@ -1,33 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public static class SaveLoadHighscoreList
 {
     public static void Save(string key, SortedSet<int> data)
     {
-        string value = String.Join(',', data);
-        
+        var value = string.Join(',', data);
+
         PlayerPrefs.SetString(key, value);
         PlayerPrefs.Save();
     }
 
     public static SortedSet<int> Load(string key)
     {
-        SortedSet<int> result = new SortedSet<int>();
+        var result = new SortedSet<int>();
 
-        string dataStr = PlayerPrefs.GetString(key);
-        string[] data = dataStr.Split(',');
+        var dataStr = PlayerPrefs.GetString(key);
+        var data = dataStr.Split(',');
 
         foreach (var score in data)
-        {
-            if (Int32.TryParse(score, out int val))
-            {
+            if (int.TryParse(score, out var val))
                 result.Add(val);
-            }
-        }
-        
+
         return result;
     }
 }

@@ -1,14 +1,14 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
-    [CreateAssetMenu(fileName = "NewAudioPlaylist", menuName = "AudioData/New Playlist", order = 0)]
-    public class AudioData : ScriptableObject
+[CreateAssetMenu(fileName = "NewAudioPlaylist", menuName = "AudioData/New Playlist", order = 0)]
+public class AudioData : ScriptableObject
+{
+    public List<AudioClip> gameSoundtrackPlaylist;
+
+    public AudioClip GetRandom()
     {
-        public List<AudioClip> gameSoundtrackPlaylist;
-
-        public AudioClip GetRandom()
-        {
-            var id = Random.Range(0, gameSoundtrackPlaylist.Count);
-            return gameSoundtrackPlaylist[id];
-        }
+        var id = Random.Range(0, gameSoundtrackPlaylist.Count);
+        return gameSoundtrackPlaylist[id];
     }
+}

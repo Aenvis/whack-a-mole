@@ -1,19 +1,9 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using JetBrains.Annotations;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class Mole : MonoBehaviour
 {
-    public bool IsStunned { get; set; }
-    public bool IsHidden { get; set; }
-
-    //Add rotatoing Stars
-    public GameObject objectToDisplay;
-
-    [CanBeNull] private Animator _animator;
-    private Transform _transform;
     private const float YPositionUp = -0.46f;
     private const float YPositionDown = -1.835f;
     private const float TransitionDuration = 1.5f;
@@ -22,7 +12,15 @@ public class Mole : MonoBehaviour
     private const float MinHiddenTime = 1f;
     private const float MaxHiddenTime = 5f;
 
+    //Add rotatoing Stars
+    public GameObject objectToDisplay;
+
+    [CanBeNull] private Animator _animator;
+
     private float _currentShowOrHideTime;
+    private Transform _transform;
+    public bool IsStunned { get; set; }
+    public bool IsHidden { get; set; }
 
     private void Start()
     {
@@ -31,7 +29,7 @@ public class Mole : MonoBehaviour
 
         var position = transform.position;
         _transform.position = new Vector3(position.x, YPositionUp, position.z);
-        
+
         IsHidden = true;
 
         GameManager.Instance.OnGameStart += OnGameStart;
@@ -39,17 +37,10 @@ public class Mole : MonoBehaviour
         GameManager.Instance.OnExitPostGameScreen += OnExitPostGameScreen;
     }
 
-    private void OnDisable()
-    {
-        GameManager.Instance.OnGameStart -= OnGameStart;
-        GameManager.Instance.OnGameStop -= OnGameStop;
-        GameManager.Instance.OnExitPostGameScreen -= OnExitPostGameScreen;
-    }
-
     private void FixedUpdate()
     {
         if (!GameManager.Instance.GameRunning) return;
-        
+
         if (_currentShowOrHideTime > 0)
         {
             _currentShowOrHideTime -= Time.fixedDeltaTime;
@@ -68,6 +59,13 @@ public class Mole : MonoBehaviour
             _currentShowOrHideTime = Random.Range(MinHiddenTime, MaxHiddenTime);
             StartCoroutine(ShowHideTransition(transform.position, YPositionDown));
         }
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.OnGameStart -= OnGameStart;
+        GameManager.Instance.OnGameStop -= OnGameStop;
+        GameManager.Instance.OnExitPostGameScreen -= OnExitPostGameScreen;
     }
 
     private void OnGameStart()
@@ -90,8 +88,7 @@ public class Mole : MonoBehaviour
     {
         IsStunned = false;
         IsHidden = false;
-        _currentShowOrHideTime = Random.Range(MinShowUpTime, MaxShowUpTime);
-        StartCoroutine(ShowHideTransition(transform.position, YPositionUp));
+        transform.position = new Vector3(transform.position.x, YPositionUp, transform.position.z);
     }
 
     private IEnumerator ShowHideTransition(Vector3 startPoint, float destinatedY)
@@ -107,9 +104,9 @@ public class Mole : MonoBehaviour
         }
 
         if (!GameManager.Instance.GameRunning) yield return null;
-        
+
         // if (!IsStunned && !IsHidden) GameManager.Instance.MolesWhacked--;
-        
+
         IsHidden = destinatedY < -1f;
         if (IsStunned && IsHidden) IsStunned = false;
     }
@@ -119,16 +116,16 @@ public class Mole : MonoBehaviour
         // TODO: play stun animation
         IsStunned = true;
         var position = transform.position;
-        
+
         _animator.SetInteger("StunIndex", Random.Range(0, 2));
         _animator.SetTrigger("Stun");
 
         //Chat GPT
 
-        float timer = 0f;
-        float displayTime = 1f;
+        var timer = 0f;
+        var displayTime = 1f;
 
-        objectToDisplay.SetActive(true); 
+        objectToDisplay.SetActive(true);
 
         while (timer < displayTime)
         {
@@ -143,7 +140,5 @@ public class Mole : MonoBehaviour
         _transform.position = new Vector3(position.x, YPositionUp, position.z);
         yield return new WaitForSeconds(0f);
         yield return StartCoroutine(ShowHideTransition(position, YPositionDown));
-
-        
     }
 }

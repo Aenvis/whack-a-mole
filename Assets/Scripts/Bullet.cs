@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
             elapsed += Time.fixedDeltaTime;
             yield return null;
         }
-        
+
         Destroy(gameObject);
     }
 }

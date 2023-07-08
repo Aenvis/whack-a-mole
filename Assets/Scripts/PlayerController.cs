@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,16 +12,16 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
-        
-        Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+        var mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
+
+        var ray = _camera.ScreenPointToRay(Input.mousePosition);
 
         if (!Physics.Raycast(ray, out var hit, Mathf.Infinity, targetLayer))
         {
             GameManager.Instance.SelectedMole = null;
             return;
         }
-        
+
         GameManager.Instance.SelectedMole = hit.collider.CompareTag("Mole") ? hit.collider.GetComponent<Mole>() : null;
     }
 }

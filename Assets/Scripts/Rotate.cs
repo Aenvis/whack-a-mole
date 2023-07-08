@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Rotate : MonoBehaviour
@@ -9,6 +6,6 @@ public class Rotate : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.Rotate(0f, rotationAngle/10f, 0f);
+        transform.Rotate(0f, rotationAngle / 10f, 0f);
     }
 }

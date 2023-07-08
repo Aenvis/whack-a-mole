@@ -1,23 +1,25 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Text;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
-    public TextMeshProUGUI  inGameScoreText;
-    public TextMeshProUGUI  timerText;
-    public TextMeshProUGUI  newScoreText;
-    public TextMeshProUGUI  onNewRecordScoreText;
-    public TextMeshProUGUI  highscorerankingText;
-    public TextMeshProUGUI  currentlyPlayingText;
+    public TextMeshProUGUI inGameScoreText;
+    public TextMeshProUGUI timerText;
+    public TextMeshProUGUI newScoreText;
+    public TextMeshProUGUI onNewRecordScoreText;
+    public TextMeshProUGUI highscorerankingText;
+    public TextMeshProUGUI currentlyPlayingText;
     public GameObject playButton;
     public GameObject quitButton;
     public GameObject exitPostGameScreenButton;
     public GameObject postGameScreen;
+
+    private void Awake()
+    {
+        GameManager.Instance.OnNewTrack += OnNewTrack;
+    }
 
     private void Start()
     {
@@ -27,11 +29,10 @@ public class UiManager : MonoBehaviour
         onNewRecordScoreText.enabled = false;
         postGameScreen.SetActive(false);
         UpdateRanking();
-        
+
         GameManager.Instance.OnGameStart += OnStartGame;
         GameManager.Instance.OnGameStop += OnStopGame;
         GameManager.Instance.OnExitPostGameScreen += OnExitPostGameScreen;
-        GameManager.Instance.OnNewTrack += OnNewTrack;
     }
 
     private void OnDisable()
@@ -85,10 +86,8 @@ public class UiManager : MonoBehaviour
         StringBuilder strBuilder = new("BEST SCORE:\n");
 
         var rankingList = ranking.ToList();
-        for (int i = 0; i < rankingList.Count; i++)
-        {
-            strBuilder.Append($"{i+1}. {rankingList[rankingList.Count - i - 1]}\n");
-        }
+        for (var i = 0; i < rankingList.Count; i++)
+            strBuilder.Append($"{i + 1}. {rankingList[rankingList.Count - i - 1]}\n");
 
         var output = strBuilder.ToString();
 
@@ -96,5 +95,7 @@ public class UiManager : MonoBehaviour
     }
 
     private void OnNewTrack(string clipName)
-    => currentlyPlayingText.text = $"music: {clipName}";
+    {
+        currentlyPlayingText.text = $"music: {clipName}";
+    }
 }
