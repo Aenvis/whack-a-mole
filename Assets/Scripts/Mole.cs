@@ -6,7 +6,7 @@ public class Mole : MonoBehaviour
 {
     private const float YPositionUp = -0.46f;
     private const float YPositionDown = -1.835f;
-    private const float TransitionDuration = 1.5f;
+    private const float TransitionDuration = 1f;
     private const float MinShowUpTime = 1f;
     private const float MaxShowUpTime = 4f;
     private const float MinHiddenTime = 1f;
