@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public Action OnGameStart;
     public Action OnGameStop;
     public Action OnExitPostGameScreen;
+    public Action<string> OnNewTrack;
 
     private int _score;
     public int MolesWhacked
@@ -45,7 +46,7 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    private const float StartTime = 10f;
+    private const float StartTime = 15f;
     private readonly string _highscoreKey = "highscore";
 
     private void Awake()

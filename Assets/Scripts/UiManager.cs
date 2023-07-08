@@ -13,6 +13,7 @@ public class UiManager : MonoBehaviour
     public TextMeshProUGUI  newScoreText;
     public TextMeshProUGUI  onNewRecordScoreText;
     public TextMeshProUGUI  highscorerankingText;
+    public TextMeshProUGUI  currentlyPlayingText;
     public GameObject playButton;
     public GameObject quitButton;
     public GameObject exitPostGameScreenButton;
@@ -30,6 +31,7 @@ public class UiManager : MonoBehaviour
         GameManager.Instance.OnGameStart += OnStartGame;
         GameManager.Instance.OnGameStop += OnStopGame;
         GameManager.Instance.OnExitPostGameScreen += OnExitPostGameScreen;
+        GameManager.Instance.OnNewTrack += OnNewTrack;
     }
 
     private void OnDisable()
@@ -37,6 +39,7 @@ public class UiManager : MonoBehaviour
         GameManager.Instance.OnGameStart -= OnStartGame;
         GameManager.Instance.OnGameStop -= OnStopGame;
         GameManager.Instance.OnExitPostGameScreen -= OnExitPostGameScreen;
+        GameManager.Instance.OnNewTrack -= OnNewTrack;
     }
 
     public void OnStartGame()
@@ -91,4 +94,7 @@ public class UiManager : MonoBehaviour
 
         highscorerankingText.text = output;
     }
+
+    private void OnNewTrack(string clipName)
+    => currentlyPlayingText.text = $"music: {clipName}";
 }

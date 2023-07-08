@@ -17,21 +17,16 @@ public class Mole : MonoBehaviour
     private const float YPositionUp = -0.46f;
     private const float YPositionDown = -1.835f;
     private const float TransitionDuration = 1.5f;
-    private const float MinShowUpTime = 2f;
+    private const float MinShowUpTime = 1f;
     private const float MaxShowUpTime = 4f;
     private const float MinHiddenTime = 1f;
-    private const float MaxHiddenTime = 6f;
-
-    
-
+    private const float MaxHiddenTime = 5f;
 
     private float _currentShowOrHideTime;
 
     private void Start()
     {
         TryGetComponent(out _animator);
-        StartCoroutine(RandomizeAnimation());
-        
         _transform = GetComponent<Transform>();
 
         var position = transform.position;
@@ -65,41 +60,38 @@ public class Mole : MonoBehaviour
 
         if (IsHidden)
         {
-            StartCoroutine(ShowHideTransition(transform.position, YPositionUp));
             _currentShowOrHideTime = Random.Range(MinShowUpTime, MaxShowUpTime);
+            StartCoroutine(ShowHideTransition(transform.position, YPositionUp));
         }
         else
         {
-            StartCoroutine(ShowHideTransition(transform.position, YPositionDown));
             _currentShowOrHideTime = Random.Range(MinHiddenTime, MaxHiddenTime);
+            StartCoroutine(ShowHideTransition(transform.position, YPositionDown));
         }
     }
 
     private void OnGameStart()
     {
         IsStunned = false;
-        _currentShowOrHideTime = Random.Range(MinHiddenTime, MaxHiddenTime);
+        IsHidden = true;
+        _currentShowOrHideTime = Random.Range(MinShowUpTime, MaxShowUpTime);
         StartCoroutine(ShowHideTransition(transform.position, YPositionDown));
     }
 
     private void OnGameStop()
     {
+        IsStunned = false;
+        IsHidden = false;
+        _currentShowOrHideTime = Random.Range(MinShowUpTime, MaxShowUpTime);
         StartCoroutine(ShowHideTransition(transform.position, YPositionUp));
     }
 
     private void OnExitPostGameScreen()
     {
+        IsStunned = false;
+        IsHidden = false;
+        _currentShowOrHideTime = Random.Range(MinShowUpTime, MaxShowUpTime);
         StartCoroutine(ShowHideTransition(transform.position, YPositionUp));
-    }
-
-    private IEnumerator RandomizeAnimation()
-    {
-        var delay = Random.Range(MinHiddenTime, MaxHiddenTime - 0.5f);
-
-        yield return new WaitForSeconds(delay);
-        _animator?.Play("idle");
-
-        yield return null;
     }
 
     private IEnumerator ShowHideTransition(Vector3 startPoint, float destinatedY)
@@ -127,8 +119,7 @@ public class Mole : MonoBehaviour
         // TODO: play stun animation
         IsStunned = true;
         var position = transform.position;
-
-        _animator = GetComponent<Animator>();
+        
         _animator.SetInteger("StunIndex", Random.Range(0, 2));
         _animator.SetTrigger("Stun");
 

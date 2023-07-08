@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 // CHAT GPT GENERATED STUFF
@@ -13,18 +14,19 @@ public class WeaponAim : MonoBehaviour
 
     private bool isFiring = false;
     private Animator AnimR;
+    private RaycastHit _hit;
 
     void FixedUpdate()
     {
         // Pobierz pozycjê kursora myszki w przestrzeni œwiata
         Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
         
         // SprawdŸ, czy promieñ z myszki przecina obiekty w scenie
-        if (Physics.Raycast(mouseRay, out hit))
+        if (Physics.Raycast(mouseRay, out _hit))
         {
+            Debug.DrawLine(_hit.point, Camera.main.transform.position, Color.red);
             // Pobierz punkt przeciêcia promienia z trafionym obiektem
-            Vector3 targetPosition = hit.point;
+            Vector3 targetPosition = _hit.point;
 
             // Oblicz kierunek celowania
             Vector3 direction = targetPosition - weaponEnd.position;
@@ -35,24 +37,19 @@ public class WeaponAim : MonoBehaviour
             // Obróæ koñcówkê broni w kierunku celu z zadan¹ prêdkoœci¹
             weaponEnd.rotation = Quaternion.RotateTowards(weaponEnd.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
         }
+    }
 
-        // Obs³uga wystrza³u po wciœniêciu lewego przycisku myszy
-        if (Input.GetMouseButtonDown(0) && !isFiring)
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
         {
-            isFiring = true;
+            //isFiring = true;
             Fire();
         }
     }
 
     void Fire()
     {
-        
-        // if (!_hit.transform.CompareTag("Mole"))
-        // {
-        //     isFiring = false;
-        //     return;
-        // }
-        
         // Odtwórz animacjê ruchu do góry
         {
             AnimR = GetComponent<Animator>();
@@ -64,15 +61,12 @@ public class WeaponAim : MonoBehaviour
         {
             Instantiate(muzzleFlashPrefab, weaponEnd.position, weaponEnd.rotation);
         }
-
-        var hit = GameManager.Instance.SelectedMole;
+        
         // Wystrza³ pocisku
-        if (hit is not null)
-        {
-            Bullet projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation).AddComponent<Bullet>();
-            StartCoroutine(projectile.Shoot(hit.transform.position, projectileSpeed));
-        }
-
-        isFiring = false;
+        var bulletGo = Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
+        var bullet = bulletGo.AddComponent<Bullet>();
+        StartCoroutine(bullet.Shoot(_hit.point, projectileSpeed));
+        
+        //isFiring = false;
     }
 }
