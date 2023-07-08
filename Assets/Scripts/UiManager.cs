@@ -75,10 +75,10 @@ public class UiManager : MonoBehaviour
     {
         newScoreText.enabled = false;
         onNewRecordScoreText.enabled = false;
-        postGameScreen.SetActive(false);
         playButton.SetActive(true);
         quitButton.SetActive(true);
         exitPostGameScreenButton.SetActive(false);
+        postGameScreen.SetActive(false);
         UpdateRanking();
         highscorerankingText.enabled = true;
     }
