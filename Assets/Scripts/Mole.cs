@@ -9,6 +9,9 @@ public class Mole : MonoBehaviour
     public bool IsStunned { get; set; }
     public bool IsHidden { get; set; }
 
+    //Add rotatoing Stars
+    public GameObject objectToDisplay;
+
     [CanBeNull] private Animator _animator;
     private Transform _transform;
     private const float YPositionUp = -0.46f;
@@ -18,6 +21,9 @@ public class Mole : MonoBehaviour
     private const float MaxShowUpTime = 4f;
     private const float MinHiddenTime = 1f;
     private const float MaxHiddenTime = 6f;
+
+    
+
 
     private float _currentShowOrHideTime;
 
@@ -121,8 +127,32 @@ public class Mole : MonoBehaviour
         // TODO: play stun animation
         IsStunned = true;
         var position = transform.position;
+
+        _animator = GetComponent<Animator>();
+        _animator.SetInteger("StunIndex", Random.Range(0, 2));
+        _animator.SetTrigger("Stun");
+
+        //Chat GPT
+
+        float timer = 0f;
+        float displayTime = 1f;
+
+        objectToDisplay.SetActive(true); 
+
+        while (timer < displayTime)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        objectToDisplay.SetActive(false);
+
+        //End of GPT
+
         _transform.position = new Vector3(position.x, YPositionUp, position.z);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0f);
         yield return StartCoroutine(ShowHideTransition(position, YPositionDown));
+
+        
     }
 }
