@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,30 +12,16 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
-        
-        Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+        var mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
 
-        if (!Physics.Raycast(ray, out hit, Mathf.Infinity, targetLayer))
+        var ray = _camera.ScreenPointToRay(Input.mousePosition);
+
+        if (!Physics.Raycast(ray, out var hit, Mathf.Infinity, targetLayer))
         {
             GameManager.Instance.SelectedMole = null;
             return;
         }
-        
-        if (hit.collider.CompareTag("Mole"))
-        {
-            GameManager.Instance.SelectedMole = hit.collider.GetComponent<Mole>();
-            Debug.DrawRay(transform.position, (hit.transform.position - transform.position) * hit.distance,
-                Color.yellow);
-            Debug.Log("Did Hit");
-        }
-        else
-        {
-            GameManager.Instance.SelectedMole = null;
-            Debug.DrawRay(transform.position, (hit.transform.position - transform.position) * hit.distance,
-                Color.white);
-            Debug.Log("Did not Hit");
-        }
+
+        GameManager.Instance.SelectedMole = hit.collider.CompareTag("Mole") ? hit.collider.GetComponent<Mole>() : null;
     }
 }

@@ -1,19 +1,11 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Rotate : MonoBehaviour
 {
-    [SerializeField] private Transform transform;
-
-    private void Start()
-    {
-        TryGetComponent<Transform>(out transform);
-    }
+    [SerializeField] private float rotationAngle;
 
     private void FixedUpdate()
     {
-        transform.Rotate(0f, 0.1f, 0f);
+        transform.Rotate(0f, rotationAngle / 10f, 0f);
     }
 }
